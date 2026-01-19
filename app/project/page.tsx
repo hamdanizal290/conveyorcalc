@@ -2,11 +2,13 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 import jsPDF from "jspdf";
 import autoTable from "jspdf-autotable";
 import { MaterialDatabase } from "../../lib/conveyor/materials";
 import { calculateConveyor, type ConveyorInput, type ConveyorResult } from "../../lib/conveyor/calculations";
+import { saveProject, updateProject, getProjectById, type SavedProject, type ProjectData } from "../../lib/conveyor/storage";
 
 // --------------------------------------------------------
 // TYPES
