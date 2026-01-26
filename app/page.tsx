@@ -76,6 +76,8 @@ export default function Home() {
             <>
               Catatan perubahan versi:
               <ul className="mt-2 list-disc pl-5">
+                <li>v1.0 — Full Release (CEMA Analysis, Multi-step Workflow, Project Storage)</li>
+                <li>v0.2 — Improved Power calculation with accessory resistance (Skirts, Scrapers)</li>
                 <li>v0.1 — Initial Conveyor Calculator (Capacity, Speed, Power, Tension)</li>
               </ul>
             </>
@@ -89,15 +91,18 @@ export default function Home() {
               Rencana pengembangan modul:
               <ul className="mt-2 list-disc pl-5">
                 <li>
-                  <strong className="text-[rgb(var(--re-blue))]">Capacity Analysis</strong> (Done)
+                  <strong className="text-[rgb(var(--re-blue))]">Capacity & Power Analysis</strong> (Done)
                 </li>
                 <li>
-                  <strong className="text-[rgb(var(--re-blue))]">Power & Tension</strong> (Done)
+                  <strong className="text-[rgb(var(--re-blue))]">Project Management</strong> (Done)
                 </li>
-                <li>Trajectory Calculation</li>
-                <li>Pulley & Shaft Sizing</li>
-                <li>Idler Selection</li>
-                <li>Report Export</li>
+                <li>
+                  <strong className="text-[rgb(var(--re-blue))]">PDF Report Export</strong> (Done)
+                </li>
+                <li>Trajectory Calculation (In-Progress)</li>
+                <li>Pulley & Shaft Sizing (In-Progress)</li>
+                <li>Automated Idler Selection</li>
+                <li>Dynamic Tension Analysis (Transient)</li>
               </ul>
             </>
           ),
@@ -107,8 +112,19 @@ export default function Home() {
           title: "Internal RE",
           body: (
             <>
-              Tool ini ditujukan untuk penggunaan internal divisi Mechanical.
-              Pastikan input density dan material properties sesuai data project.
+              <p>
+                Tool ini ditujukan untuk penggunaan internal divisi Mechanical.
+                Pastikan input density dan material properties sesuai data project.
+              </p>
+              <div className="mt-6 flex justify-end">
+                <Link
+                  href="/internal"
+                  className="px-4 py-2 rounded-xl text-sm font-bold text-white bg-[rgb(var(--re-blue))] hover:opacity-90 transition"
+                  onClick={() => setModal(null)}
+                >
+                  Buka Dashboard Internal &rarr;
+                </Link>
+              </div>
             </>
           ),
         };
@@ -184,7 +200,7 @@ export default function Home() {
 
               <button
                 type="button"
-                className="px-3 py-2 rounded-2xl text-sm font-semibold border border-black/10 bg-white/60 hover:bg-white/90 transition re-muted"
+                className="px-4 py-2 rounded-2xl text-sm font-semibold border border-black/10 bg-white/70 hover:bg-white/90 transition"
                 onClick={() => setModal("internal")}
               >
                 Internal RE

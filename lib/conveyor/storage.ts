@@ -113,6 +113,11 @@ export function deleteProject(id: string): boolean {
     return true;
 }
 
+export function clearAllProjects(): void {
+    if (typeof window === 'undefined') return;
+    localStorage.removeItem(STORAGE_KEY);
+}
+
 function generateId(): string {
     return 'proj_' + Date.now().toString(36) + Math.random().toString(36).substring(2, 9);
 }
